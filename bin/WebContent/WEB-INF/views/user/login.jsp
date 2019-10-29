@@ -1,4 +1,3 @@
-<%@page import="com.board.mini.ListTest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,8 +9,8 @@
 <body>
 login
 <%
-ListTest lt = new ListTest();
-lt.Mymaplist();
+String test = (String)request.getAttribute("test");
 %>
+<%=test%>
 </body>
 </html>
