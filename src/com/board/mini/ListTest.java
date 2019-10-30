@@ -7,14 +7,12 @@ import java.util.Map;
 
 public class ListTest 
 {
-	public void Mymaplist() 
+	public List<Map<String,String>> Mymaplist(String s, String s2) 
 	{	
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("a","1");
-		map.put("b","2");
-		map.put("c","3");
+		map.put(s,s2);	
 		List<Map<String,String>> list = new ArrayList<Map<String,String>>();
-		list.add(map);   
-		System.out.println(list);
+		list.add(map);  
+		return list;
 	}
 }

@@ -1,33 +1,28 @@
 package com.board.mini.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.board.mini.ListTest;
+import com.board.mini.service.UserService;
 
-public class URIController extends HttpServlet {
+public class UserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-    private static final String PREFIX = "/WEB-INF";
-    private static final String SUFFIX = ".jsp";
-    
-    private static String getFowardURI(HttpServletRequest request)
-    {
-    	return PREFIX + request.getRequestURI() + SUFFIX;
-    }
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher(getFowardURI(request));
-		rd.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request,response);
+		request.setCharacterEncoding("utf-8");
+		String utName = request.getParameter("utName");
+		String utId = request.getParameter("utId");
+		String utPwd = request.getParameter("utPwd");
+		UserService us = new UserService();
+		String uri = request.getRequestURI();
+		System.out.println(uri.substring(6));
 	}
-	
 }

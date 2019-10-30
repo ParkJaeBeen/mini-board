@@ -8,6 +8,8 @@
 <title>Mini Board</title>
 </head>
 <body>
-처음만드는 웹 게시판
+처음만드는 웹 게시판<br>
+<a href="/views/user/login">login</a><br>
+<a href="/views/user/signup">회원가입</a>
 </body>
 </html>
