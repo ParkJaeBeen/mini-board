@@ -19,7 +19,7 @@ public class UserService
 	{
 		Connection con = DBCon.getCon();
 		DBExecutor dbe = new DBExecutor();
-		String sql = "select * from user info where id=? and pwd=?";
+		String sql = "select * from user_table where ut_id=? and ut_pwd=?";
 		try {
 			PreparedStatement ps  = dbe.prepared(con,sql);
 			ps.setString(1, id);
@@ -33,7 +33,7 @@ public class UserService
 				user.put("utid",rs.getString("ut_id"));
 				return user;
 			}
-		} catch (SQLException e) {
+		} catch (SQLException e) { 
 			e.printStackTrace();
 		}finally {
 			dbe.closeAll();

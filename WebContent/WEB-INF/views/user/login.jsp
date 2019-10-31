@@ -5,9 +5,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%
+String msg = (String)request.getAttribute("msg");
+if(msg != null)
+{
+	%>
+	<script>
+	alert('<%=msg%>');  
+	</script>
+	<%
+}
+%>
 <title>Insert title here</title>
 </head>
-<body style="text-align: center">
+<body style="text-align: center"> 
 	로그인 화면
 	<form method="post" action="/user/login">
 		<table 
