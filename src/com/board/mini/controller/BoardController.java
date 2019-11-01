@@ -36,8 +36,9 @@ public class BoardController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String cmd = uri.substring(7);
 		BoardService bs = new BoardService();
-		String path = "/views/board/list";
+		String path = "/board/list";
 		String msg = "저장 완료";
+		
 		if("insert".equals(cmd))
 		{
 			Map<String,String> board = new HashMap<>();
@@ -47,13 +48,16 @@ public class BoardController extends HttpServlet {
 			Map<String,Object> user = (Map<String,Object>)hs.getAttribute("user");
 			board.put("utNum",user.get("utNum").toString());
 			int rs = bs.setBoardList(board);
+			msg = "저장 완료!";
 			if(rs != 1)
 			{
 				path="/views/board/insert";
 				msg = "저장 실패";
 			}
 		}
-		RequestDispatcher rd = request.getRequestDispatcher(path);
+		request.setAttribute("url", path);
+		request.setAttribute("msg", msg);
+		RequestDispatcher rd = request.getRequestDispatcher("/views/msg");
 		rd.forward(request, response);
 	}
 

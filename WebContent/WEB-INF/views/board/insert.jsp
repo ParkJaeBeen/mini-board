@@ -37,7 +37,7 @@ Map<String,Object> user = (Map<String,Object>)session.getAttribute("user");
 			<td><%=user.get("utName") %></td>
 		</tr>
 		<tr>
-			<th colspan="2"><button>글저장</button></th>
+			<th colspan="2"><button onclick="gopage('/board/list')">글저장</button></th>
 		</tr>
 	</table>
 </form>
